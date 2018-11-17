@@ -1,8 +1,8 @@
 package lesson3
 
 import org.junit.jupiter.api.Tag
-import kotlin.test.Test
 import java.util.*
+import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
@@ -31,6 +31,68 @@ class BinaryTreeTest {
         assertTrue(tree.checkInvariant())
         assertEquals(1, tree.first())
         assertEquals(20, tree.last())
+
+    }
+
+    @Test
+    fun TestOneChild() {
+        val tree = BinaryTree<Int>()
+        tree.add(10)
+        tree.add(5)
+        tree.add(7)
+        tree.add(3)
+        tree.add(14)
+        tree.add(9)
+        tree.add(2)
+        assertTrue(tree.remove(7))
+        assertTrue(tree.remove(3))
+        assertEquals(5, tree.size)
+    }
+
+    @Test
+    fun TestWithoutChildren() {
+        val tree = BinaryTree<Int>()
+        tree.add(10)
+        tree.add(5)
+        tree.add(7)
+        tree.add(3)
+        tree.add(14)
+        tree.add(9)
+        tree.add(2)
+        assertTrue(tree.remove(2))
+        assertTrue(tree.remove(9))
+        assertEquals(5, tree.size)
+    }
+
+    @Test
+    fun AnotherTest() {
+        val tree = BinaryTree<Int>()
+        tree.add(10)
+        tree.add(4)
+        tree.add(8)
+        tree.add(3)
+        tree.add(14)
+        tree.add(9)
+        tree.add(2)
+        tree.add(6)
+        tree.add(7)
+        assertTrue(tree.remove(4))
+        assertEquals(8, tree.size)
+    }
+
+    @Test
+    fun SecondAnotherTest() {
+        val tree = BinaryTree<Int>()
+        tree.add(10)
+        tree.add(4)
+        tree.add(8)
+        tree.add(3)
+        tree.add(14)
+        tree.add(9)
+        tree.add(2)
+        tree.add(6)
+        assertTrue(tree.remove(4))
+        assertEquals(7, tree.size)
     }
 
     @Test
